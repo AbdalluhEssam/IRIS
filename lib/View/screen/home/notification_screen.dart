@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iris_wheel_assist/core/constant/icon_broken.dart';
 import 'package:jiffy/jiffy.dart' show Jiffy;
 import '../../../../controller/home/notification_controller.dart';
 import '../../../../core/class/handlingdataview.dart';
@@ -42,6 +43,14 @@ class NotificationScreen extends GetView<NotificationControllerImp> {
                                 horizontal: 15, vertical: 10),
                             child: Row(
                               children: [
+                                const CircleAvatar(
+                                  radius: 30,
+                                  backgroundColor: AppColor.white,
+                                  child: Icon(IconBroken.Calendar,color: AppColor.primaryColor,),
+                                ),
+                                const SizedBox(
+                                  width: 20,
+                                ),
                                 Expanded(
                                   flex: 2,
                                   child: Column(
@@ -51,22 +60,22 @@ class NotificationScreen extends GetView<NotificationControllerImp> {
                                       Text(
                                           "${controller.notification[index].usersName}",
                                           style: const TextStyle(
-                                              fontSize: 14,
+                                              fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                               color: AppColor.primaryColor)),
                                       const SizedBox(
-                                        height: 10,
+                                        height: 5,
                                       ),
                                       Text(
                                           "${controller.notification[index].message}",
                                           style: const TextStyle(
-                                              fontSize: 12,
+                                              fontSize: 14,
                                               color: AppColor.black)),
                                     ],
                                   ),
                                 ),
                                 Text(
-                                    Jiffy( "${DateTime.parse(controller.notification[index].date!)}")
+                                    Jiffy("${DateTime.parse(controller.notification[index].date!)}")
                                         .fromNow(),
                                     style: const TextStyle(
                                         fontSize: 9,
