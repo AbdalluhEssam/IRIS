@@ -14,7 +14,7 @@ class NotificationScreen extends GetView<NotificationControllerImp> {
     Get.put(NotificationControllerImp());
     return Scaffold(
         appBar: AppBar(
-          // automaticallyImplyLeading: false,
+          automaticallyImplyLeading: false,
           title: Text(translateDataBase("الاشعارات", "Notification")),
           centerTitle: true,
         ),
@@ -49,7 +49,7 @@ class NotificationScreen extends GetView<NotificationControllerImp> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                          "${controller.notification[index].notificationTitle}",
+                                          "${controller.notification[index].usersName}",
                                           style: const TextStyle(
                                               fontSize: 14,
                                               fontWeight: FontWeight.bold,
@@ -58,7 +58,7 @@ class NotificationScreen extends GetView<NotificationControllerImp> {
                                         height: 10,
                                       ),
                                       Text(
-                                          "${controller.notification[index].notificationBody}",
+                                          "${controller.notification[index].message}",
                                           style: const TextStyle(
                                               fontSize: 12,
                                               color: AppColor.black)),
@@ -66,7 +66,7 @@ class NotificationScreen extends GetView<NotificationControllerImp> {
                                   ),
                                 ),
                                 Text(
-                                    Jiffy( "${DateTime.parse(controller.notification[index].createAt!)}")
+                                    Jiffy( "${DateTime.parse(controller.notification[index].date!)}")
                                         .fromNow(),
                                     style: const TextStyle(
                                         fontSize: 9,
